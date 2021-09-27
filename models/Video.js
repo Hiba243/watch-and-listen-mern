@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ContactSchema = mongoose.Schema({
+const VideoSchema = mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
@@ -9,14 +9,11 @@ const ContactSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  email: {
+  videoId: {
     type: String,
     required: true
   },
-  phone: {
-    type: String
-  },
-  type: {
+  category: {
     type: String,
     default: 'personal'
   },
@@ -26,4 +23,4 @@ const ContactSchema = mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('contact', ContactSchema);
+module.exports = mongoose.model('video', VideoSchema);
