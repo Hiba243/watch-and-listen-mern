@@ -1,14 +1,14 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
-import ContactContext from '../../context/contact/contactContext';
+import VideoContext from '../../context/video/videoContext';
 
 const Navbar = ({ title, icon }) => {
   const authContext = useContext(AuthContext);
-  const contactContext = useContext(ContactContext);
+  const videoContext = useContext(VideoContext);
 
   const { isAuthenticated, logout, user, loadUser } = authContext;
-  const { clearContacts } = contactContext;
+  const { clearVideos } = videoContext;
 
   useEffect(() => {
     loadUser();
@@ -17,7 +17,7 @@ const Navbar = ({ title, icon }) => {
 
   const onLogout = () => {
     logout();
-    clearContacts();
+    clearVideos();
   };
 
   const authLinks = (

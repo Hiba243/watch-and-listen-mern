@@ -1,16 +1,16 @@
 import React from 'react'
-import Contacts from '../contacts/Contacts'
-import ContactForm from '../contacts/ContactForm'
-import ContactFilter from '../contacts/ContactFilter'
+import Videos from '../videos/Videos'
+import VideoForm from '../videos/VideoForm'
+import VideoFilter from '../videos/VideoFilter'
 const Home = () => {
     return (
         <div className="grid-2">
             <div>
-                <ContactForm/>
+                <VideoForm/>
             </div>
             <div>
-                <ContactFilter/>
-            <Contacts/>
+                <VideoFilter/>
+            <Videos/>
             </div>    
         </div>
     )

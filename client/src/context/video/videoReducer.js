@@ -1,50 +1,50 @@
 import {
-    GET_CONTACTS,
-    ADD_CONTACT,
-    DELETE_CONTACT,
+    GET_VIDEOS,
+    ADD_VIDEO,
+    DELETE_VIDEO,
     SET_CURRENT,
     CLEAR_CURRENT,
-    UPDATE_CONTACT,
-    FILTER_CONTACTS,
+    UPDATE_VIDEO,
+    FILTER_VIDEOS,
     CLEAR_FILTER,
-    CONTACT_ERROR,
-    CLEAR_CONTACTS
+    VIDEO_ERROR,
+    CLEAR_VIDEOS
 } from '../types';
 
 export default (state, action) => {
     switch (action.type) {
-        case GET_CONTACTS:
+        case GET_VIDEOS:
             return {
                 ...state,
-                contacts: action.payload,
+                videos: action.payload,
                 loading: false
             };
-        case ADD_CONTACT:
+        case ADD_VIDEO:
             return {
                 ...state,
-                contacts: [action.payload, ...state.contacts],
+                videos: [action.payload, ...state.videos],
                 loading: false
             };
-        case UPDATE_CONTACT:
+        case UPDATE_VIDEO:
             return {
                 ...state,
-                contacts: state.contacts.map(contact =>
-                    contact._id === action.payload._id ? action.payload : contact
+                videos: state.videos.map(video =>
+                    video._id === action.payload._id ? action.payload : video
                 ),
                 loading: false
             };
-        case DELETE_CONTACT:
+        case DELETE_VIDEO:
             return {
                 ...state,
-                contacts: state.contacts.filter(
-                    contact => contact._id !== action.payload
+                videos: state.videos.filter(
+                    video => video._id !== action.payload
                 ),
                 loading: false
             };
-        case CLEAR_CONTACTS:
+        case CLEAR_VIDEOS:
             return {
                 ...state,
-                contacts: null,
+                videos: null,
                 filtered: null,
                 error: null,
                 current: null
@@ -59,12 +59,12 @@ export default (state, action) => {
                 ...state,
                 current: null
             };
-        case FILTER_CONTACTS:
+        case FILTER_VIDEOS:
             return {
                 ...state,
-                filtered: state.contacts.filter(contact => {
+                filtered: state.videos.filter(video => {
                     const regex = new RegExp(`${action.payload}`, 'gi');
-                    return contact.name.match(regex) || contact.email.match(regex);
+                    return video.name.match(regex) 
                 })
             };
         case CLEAR_FILTER:
@@ -72,7 +72,7 @@ export default (state, action) => {
                 ...state,
                 filtered: null
             };
-        case CONTACT_ERROR:
+        case VIDEO_ERROR:
             return {
                 ...state,
                 error: action.payload

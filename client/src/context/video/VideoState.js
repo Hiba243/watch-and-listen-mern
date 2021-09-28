@@ -1,49 +1,49 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
-import ContactContext from './contactContext';
-import contactReducer from './contactReducer';
+import VideoContext from './videoContext';
+import videoReducer from './videoReducer';
 import {
-    GET_CONTACTS,
-    ADD_CONTACT,
-    DELETE_CONTACT,
+    GET_VIDEOS,
+    ADD_VIDEO,
+    DELETE_VIDEO,
     SET_CURRENT,
     CLEAR_CURRENT,
-    UPDATE_CONTACT,
-    FILTER_CONTACTS,
-    CLEAR_CONTACTS,
+    UPDATE_VIDEO,
+    FILTER_VIDEOS,
+    CLEAR_VIDEOS,
     CLEAR_FILTER,
-    CONTACT_ERROR
+    VIDEO_ERROR
 } from '../types';
 
-const ContactState = props => {
+const VideoState = props => {
     const initialState = {
-        contacts: null,
+        videos: null,
         current: null,
         filtered: null,
         error: null
     };
 
-    const [state, dispatch] = useReducer(contactReducer, initialState);
+    const [state, dispatch] = useReducer(videoReducer, initialState);
 
-    // Get Contacts
-    const getContacts = async () => {
+    // Get Videos
+    const getVideos = async () => {
         try {
             const res = await axios.get('/api/video');
 
             dispatch({
-                type: GET_CONTACTS,
+                type: GET_VIDEOS,
                 payload: res.data
             });
         } catch (err) {
             dispatch({
-                type: CONTACT_ERROR,
+                type: VIDEO_ERROR,
                 payload: err.response.msg
             });
         }
     };
 
-    // Add Contact
-    const addContact = async contact => {
+    // Add Video
+    const addVideo = async video => {
         const config = {
             headers: {
                 'Content-Type': 'application/json'
@@ -51,39 +51,39 @@ const ContactState = props => {
         };
 
         try {
-            const res = await axios.post('/api/video', contact, config);
+            const res = await axios.post('/api/video', video, config);
 
             dispatch({
-                type: ADD_CONTACT,
+                type: ADD_VIDEO,
                 payload: res.data
             });
         } catch (err) {
             dispatch({
-                type: CONTACT_ERROR,
+                type: VIDEO_ERROR,
                 payload: err.response.msg
             });
         }
     };
 
-    // Delete Contact
-    const deleteContact = async id => {
+    // Delete Video
+    const deleteVideo = async id => {
         try {
             await axios.delete(`/api/video/${id}`);
 
             dispatch({
-                type: DELETE_CONTACT,
+                type: DELETE_VIDEO,
                 payload: id
             });
         } catch (err) {
             dispatch({
-                type: CONTACT_ERROR,
+                type: VIDEO_ERROR,
                 payload: err.response.msg
             });
         }
     };
 
-    // Update Contact
-    const updateContact = async contact => {
+    // Update Video
+    const updateVideo = async video => {
         const config = {
             headers: {
                 'Content-Type': 'application/json'
@@ -92,41 +92,41 @@ const ContactState = props => {
 
         try {
             const res = await axios.put(
-                `/api/video/${contact._id}`,
-                contact,
+                `/api/video/${video._id}`,
+                video,
                 config
             );
 
             dispatch({
-                type: UPDATE_CONTACT,
+                type: UPDATE_VIDEO,
                 payload: res.data
             });
         } catch (err) {
             dispatch({
-                type: CONTACT_ERROR,
+                type: VIDEO_ERROR,
                 payload: err.response.msg
             });
         }
     };
 
-    // Clear Contacts
-    const clearContacts = () => {
-        dispatch({ type: CLEAR_CONTACTS });
+    // Clear Videos
+    const clearVideos = () => {
+        dispatch({ type: CLEAR_VIDEOS });
     };
 
-    // Set Current Contact
-    const setCurrent = contact => {
-        dispatch({ type: SET_CURRENT, payload: contact });
+    // Set Current Video
+    const setCurrent = video => {
+        dispatch({ type: SET_CURRENT, payload: video });
     };
 
-    // Clear Current Contact
+    // Clear Current Video
     const clearCurrent = () => {
         dispatch({ type: CLEAR_CURRENT });
     };
 
-    // Filter Contacts
-    const filterContacts = text => {
-        dispatch({ type: FILTER_CONTACTS, payload: text });
+    // Filter Videos
+    const filterVideos = text => {
+        dispatch({ type: FILTER_VIDEOS, payload: text });
     };
 
     // Clear Filter
@@ -135,26 +135,26 @@ const ContactState = props => {
     };
 
     return (
-        <ContactContext.Provider
+        <VideoContext.Provider
             value={{
-                contacts: state.contacts,
+                videos: state.videos,
                 current: state.current,
                 filtered: state.filtered,
                 error: state.error,
-                addContact,
-                deleteContact,
+                addVideo,
+                deleteVideo,
                 setCurrent,
                 clearCurrent,
-                updateContact,
-                filterContacts,
+                updateVideo,
+                filterVideos,
                 clearFilter,
-                getContacts,
-                clearContacts
+                getVideos,
+                clearVideos
             }}
         >
             {props.children}
-        </ContactContext.Provider>
+        </VideoContext.Provider>
     );
 };
 
-export default ContactState;
+export default VideoState;

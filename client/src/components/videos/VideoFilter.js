@@ -1,11 +1,11 @@
 import React, { useContext, useRef, useEffect } from 'react'
-import ContactContext from '../../context/contact/contactContext';
-const ContactFilter = () => {
-    const contactContext = useContext(ContactContext);
+import VideoContext from '../../context/video/videoContext';
+const VideoFilter = () => {
+    const videoContext = useContext(VideoContext);
 
     const text = useRef('');
 
-    const { filterContacts, clearFilter, filtered } = contactContext;
+    const { filterVideos, clearFilter, filtered } = videoContext;
 
     useEffect(() => {
         if (filtered === null) {
@@ -15,7 +15,7 @@ const ContactFilter = () => {
 
     const onChange = e => {
         if (text.current.value !== '') {
-            filterContacts(e.target.value);
+            filterVideos(e.target.value);
         } else {
             clearFilter();
         }
@@ -26,11 +26,11 @@ const ContactFilter = () => {
             <input
                 ref={text}
                 type='text'
-                placeholder='Filter Contacts...'
+                placeholder='Filter Videos...'
                 onChange={onChange}
             />
         </form>
     );
 };
 
-export default ContactFilter
+export default VideoFilter

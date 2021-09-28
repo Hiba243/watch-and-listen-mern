@@ -1,32 +1,31 @@
 import React, { useContext, useState, useEffect } from 'react'
-import ContactContext from '../../context/contact/contactContext';
+import VideoContext from '../../context/video/videoContext';
 
-const ContactForm = () => {
-    const contactContext=useContext(ContactContext);
-    const {addContact, current, clearCurrent, updateContact}=contactContext;
+const VideoForm = () => {
+    const videoContext=useContext(VideoContext);
+    const {addVideo, current, clearCurrent, updateVideo}=videoContext;
 
     useEffect(()=>{
         if(current!==null){
-            setContact(current);
+            setVideo(current);
         }
         else{
-            setContact({
+            setVideo({
                 name: '',
                 videoId: '',
-                category: '',
-                type: 'personal'
+                category: ''
+    
             });
         }
-    },[contactContext,current]);
-    const [contact, setContact] = useState({
+    },[videoContext,current]);
+    const [video, setVideo] = useState({
         name: '',
         videoId: '',
-        category: '',
-        type: 'personal'
+        category: ''
     });
 
     const onChange = e =>
-    setContact({ ...contact, [e.target.name]: e.target.value });
+    setVideo({ ...video, [e.target.name]: e.target.value });
 
     const clearAll = () => {
         clearCurrent();
@@ -35,18 +34,18 @@ const ContactForm = () => {
     const onSubmit = e => {
         e.preventDefault();
         if(current === null){
-            addContact(contact);
+            addVideo(video);
         }
         else{
-            updateContact(contact);
+            updateVideo(video);
         }
         clearAll();
     }
-    const { name, videoId, type, category } = contact;
+    const { name, videoId, category } = video;
 
     return (
         <form onSubmit={onSubmit}>
-            <h2 className="text-primary">{current ? 'Edit Contact' : 'Add Contact'}</h2>
+            <h2 className="text-primary">{current ? 'Edit Video' : 'Add Video'}</h2>
             <input type="text" placeholder="name" name="name" value={name} onChange={onChange}></input>
             <input type="text" placeholder="videoId" name="videoId" value={videoId} onChange={onChange}></input>
             <input type="text" placeholder="category" name="category" value={category} onChange={onChange}></input>
@@ -54,7 +53,7 @@ const ContactForm = () => {
             <div>
                 <input
                     type='submit'
-                    value={current ? 'Update Contact' : 'Add Contact'}
+                    value={current ? 'Update Video' : 'Add Video'}
                     className='btn btn-primary btn-block'
                 />
             </div>
@@ -66,4 +65,4 @@ const ContactForm = () => {
     )
 }
 
-export default ContactForm
+export default VideoForm
