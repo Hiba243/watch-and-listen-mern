@@ -3,7 +3,7 @@ import VideoContext from  '../../context/video/videoContext';
 
 const VideoItem = ({ video }) => {
     const videoContext=useContext(VideoContext);
-    const {deleteVideo,setCurrent, clearCurrent}=videoContext;
+    const {deleteVideo,setCurrent, clearCurrent, setCurrentVideo}=videoContext;
     const { _id, name, videoId, category } = video;
     const onDelete = () => {
         deleteVideo(_id);
@@ -13,8 +13,6 @@ const VideoItem = ({ video }) => {
         <div className="card bg-light">
             <h3 className="text-primary text-left">{name}{' '}</h3>
             <ul className="list">
-                {videoId && (<li>{videoId}
-                </li>)}
                 {category && (<li>{category}
                 </li>)}
             </ul>

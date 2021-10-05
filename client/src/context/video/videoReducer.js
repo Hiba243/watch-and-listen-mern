@@ -8,7 +8,8 @@ import {
     FILTER_VIDEOS,
     CLEAR_FILTER,
     VIDEO_ERROR,
-    CLEAR_VIDEOS
+    CLEAR_VIDEOS,
+    SET_CURRENT_VIDEO
 } from '../types';
 
 export default (state, action) => {
@@ -34,6 +35,7 @@ export default (state, action) => {
                 loading: false
             };
         case DELETE_VIDEO:
+            localStorage.removeItem('Video');
             return {
                 ...state,
                 videos: state.videos.filter(
@@ -53,6 +55,11 @@ export default (state, action) => {
             return {
                 ...state,
                 current: action.payload
+            };
+            case SET_CURRENT_VIDEO:
+            return {
+                ...state,
+                currentVideo: action.payload
             };
         case CLEAR_CURRENT:
             return {

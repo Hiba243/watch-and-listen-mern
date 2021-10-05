@@ -12,6 +12,7 @@ import VideoState from './context/video/VideoState';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 import './App.css';
+import VideoPlayer from './components/videos/VideoPlayer';
 
 const App = () => {
   return (
@@ -24,8 +25,9 @@ const App = () => {
               <div className="container">
                 <Alerts/>
                 <Switch>
-                  <PrivateRoute exact path='/' component={Home} />
+                  <PrivateRoute exact path='/home' component={Home} />
                   <Route exact path="/about" component={About}></Route>
+                  <PrivateRoute exact path="/" component={VideoPlayer}></PrivateRoute>
                   <Route exact path="/register" component={Register}></Route>
                   <Route exact path="/login" component={Login}></Route>
                 </Switch>

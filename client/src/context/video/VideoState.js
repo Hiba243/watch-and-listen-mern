@@ -12,13 +12,15 @@ import {
     FILTER_VIDEOS,
     CLEAR_VIDEOS,
     CLEAR_FILTER,
-    VIDEO_ERROR
+    VIDEO_ERROR,
+    SET_CURRENT_VIDEO
 } from '../types';
 
 const VideoState = props => {
     const initialState = {
         videos: null,
         current: null,
+        currentVideo: null,
         filtered: null,
         error: null
     };
@@ -114,10 +116,15 @@ const VideoState = props => {
         dispatch({ type: CLEAR_VIDEOS });
     };
 
-    // Set Current Video
+    
     const setCurrent = video => {
         dispatch({ type: SET_CURRENT, payload: video });
     };
+
+    const  setCurrentVideo = video => {
+        localStorage.setItem('Video', video);
+        dispatch({ type: SET_CURRENT_VIDEO, payload: video });
+    }
 
     // Clear Current Video
     const clearCurrent = () => {
@@ -149,7 +156,8 @@ const VideoState = props => {
                 filterVideos,
                 clearFilter,
                 getVideos,
-                clearVideos
+                clearVideos,
+                setCurrentVideo
             }}
         >
             {props.children}
