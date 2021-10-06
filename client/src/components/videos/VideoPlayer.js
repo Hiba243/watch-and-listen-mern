@@ -33,7 +33,7 @@ function VideoPlayer() {
     };
 
     return <div className="VideoPlayer">
-        <YouTube videoId={localStorage.getItem('Video')} opts={opts}/>
+        {localStorage.getItem('Type')=="video" ? <YouTube videoId={localStorage.getItem('Video')} opts={opts}/> : <p>hello</p>}
         <div className="videoOptionsFlex">
         {videos !== null && !loading && videos.map(video => (
                 

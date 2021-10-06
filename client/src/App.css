@@ -44,7 +44,7 @@ img {
 .container {
  
   margin: auto;
-  overflow: hidden;
+ 
   padding: 0 .5rem;
 }
 
@@ -333,7 +333,7 @@ button {
 .form-container {
   max-width: 500px;
   margin: 2rem auto;
-  overflow: hidden;
+ 
   padding: 0 2rem;
 }
 

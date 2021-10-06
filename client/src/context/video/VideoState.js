@@ -123,6 +123,7 @@ const VideoState = props => {
 
     const  setCurrentVideo = video => {
         localStorage.setItem('Video', video);
+        localStorage.setItem('Type', "video");
         dispatch({ type: SET_CURRENT_VIDEO, payload: video });
     }
 
