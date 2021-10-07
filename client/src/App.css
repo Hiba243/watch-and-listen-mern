@@ -19,17 +19,17 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
-  color: #333;
+  background-color: black;
+  color:white;
 }
 
 a {
-  color: var(--primary-color);
+  color: white;
   text-decoration: none;
 }
 
 a:hover {
-  color: #666;
+  color: white;
 }
 
 ul {
@@ -71,7 +71,7 @@ img {
 }
 
 .text-primary {
-  color: var(--primary-color);
+  color: white;
 }
 
 .text-dark {
@@ -355,24 +355,22 @@ table th {
 
 /* Navbar */
 .navbar {
-  display: flex;
-  justify-content: space-between;
+
   align-items: center;
-  padding: 0.7rem 2rem;
-  z-index: 1;
-  width: 100%;
-  border-bottom: solid 1px var(--primary-color);
-  opacity: 0.9;
-  margin-bottom: 1rem;
+  justify-content: flex-start;
+  text-align: right;
 }
 
 .navbar ul {
   display: flex;
+  gap: .5rem;
+  flex-direction: column;
+  
 }
 
 .navbar a {
   color: #fff;
-  margin: 0 0.25rem;
+
 }
 
 .navbar a:hover {
@@ -438,4 +436,30 @@ table th {
     text-align: center;
     justify-content: center;
   }
+}
+
+.img-format{
+ width: auto;
+ margin: 0 auto;
+	
+}
+.home-flex{
+  display: flex;
+justify-content: space-between;
+}
+.Home{
+  display: flex;
+  justify-content: space-between;
+}
+.sidebar{
+  display: flex;
+  gap:5rem;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.VideoForm{
+  width: 40vw;
+}
+.VideoFilter{
+  width: 40vw;
 }

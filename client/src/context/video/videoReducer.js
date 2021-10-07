@@ -59,7 +59,7 @@ export default (state, action) => {
             case SET_CURRENT_VIDEO:
             return {
                 ...state,
-                currentVideo: action.payload
+                currentVideo: action.payload.videoId
             };
         case CLEAR_CURRENT:
             return {

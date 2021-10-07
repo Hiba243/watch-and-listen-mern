@@ -26,7 +26,7 @@ const VideoFilter = () => {
             <input
                 ref={text}
                 type='text'
-                placeholder='Filter Videos...'
+                placeholder='Filter...'
                 onChange={onChange}
             />
         </form>

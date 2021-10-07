@@ -21,11 +21,11 @@ const App = () => {
         <AlertState>
           <Router>
             <Fragment>
-              <Navbar />
+              
               <div className="container">
                 <Alerts/>
                 <Switch>
-                  <PrivateRoute exact path='/home' component={Home} />
+                  <PrivateRoute exact path='/customize' component={Home} />
                   <Route exact path="/about" component={About}></Route>
                   <PrivateRoute exact path="/" component={VideoPlayer}></PrivateRoute>
                   <Route exact path="/register" component={Register}></Route>

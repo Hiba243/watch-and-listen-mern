@@ -45,17 +45,32 @@ const VideoForm = () => {
     const { name, videoId, category } = video;
 
     return (
-        <form onSubmit={onSubmit}>
-            <h2 className="text-primary">{current ? 'Edit Video' : 'Add Video'}</h2>
+        <form onSubmit={onSubmit} className="VideoForm">
+            <h2 className="text-primary">{current ? 'Edit' : 'Add'}</h2>
             <input type="text" placeholder="name" name="name" value={name} onChange={onChange}></input>
-            <input type="text" placeholder="videoId" name="videoId" value={videoId} onChange={onChange}></input>
-            <input type="text" placeholder="category" name="category" value={category} onChange={onChange}></input>
-           
+            <input type="text" placeholder="enter youtube video id or image link" name="videoId" value={videoId} onChange={onChange}></input>
+            {/* <input type="text" placeholder="category" name="category" value={category} onChange={onChange}></input> */}
+            <input
+                type='radio'
+                name='category'
+                value='video'
+                checked={category === 'video'}
+                onChange={onChange}
+            />{' '}
+            Video{' '}
+            <input
+                type='radio'
+                name='category'
+                value='image'
+                checked={category === 'image'}
+                onChange={onChange}
+            />{' '}
+            Image
             <div>
                 <input
                     type='submit'
-                    value={current ? 'Update Video' : 'Add Video'}
-                    className='btn btn-primary btn-block'
+                    value={current ? 'Update' : 'Add'}
+                    className='btn btn-white btn-block'
                 />
             </div>
             {current && <div>

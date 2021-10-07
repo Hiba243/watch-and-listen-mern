@@ -1,10 +1,11 @@
-import React, { useContext, useEffect,useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import YouTube from 'react-youtube';
 import VideoContext from '../../context/video/videoContext';
 import VideoOptions from './VideoOptions';
-
+import Navbar from '../layout/Navbar';
 function VideoPlayer() {
-    const [currentVideo, setCurrentVideo]=useState('');
+    const [currentVideo, setCurrentVideo] = useState('');
+    const [currentType, setCurrentType] = useState('');
     const _onReady = (event) => {
         // access to player in all event handlers via event.target
         event.target.pauseVideo();
@@ -15,10 +16,11 @@ function VideoPlayer() {
 
     useEffect(() => {
         getVideos();
-        
+
         setCurrentVideo(localStorage.getItem('Video')); console.log(currentVideo);
+        setCurrentType(localStorage.getItem('Type')); console.log(localStorage.getItem('Type'));
         // eslint-disable-next-line
-    }, [localStorage.getItem('Video')]);
+    }, [localStorage.getItem('Type')]);
 
     const opts = {
         height: '390',
@@ -33,13 +35,20 @@ function VideoPlayer() {
     };
 
     return <div className="VideoPlayer">
-        {localStorage.getItem('Type')=="video" ? <YouTube videoId={localStorage.getItem('Video')} opts={opts}/> : <p>hello</p>}
+        {localStorage.getItem('Type') == "video" ? <YouTube videoId={localStorage.getItem('Video')} opts={opts} /> : <img src={localStorage.getItem('Video')} alt="myimg" className="img-format"></img>}
         <div className="videoOptionsFlex">
-        {videos !== null && !loading && videos.map(video => (
-                
-                <VideoOptions video={video}  key={video._id}/>             
-            ))}
+            <div className="sidebar">
+                <Navbar />
+                <div>
+                    {videos !== null && !loading && videos.map(video => (
+
+                        <VideoOptions video={video} key={video._id} />
+                    ))}
+                </div>
+            </div>
+
         </div>
+
     </div>
 }
 

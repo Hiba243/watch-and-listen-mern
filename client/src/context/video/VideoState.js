@@ -122,8 +122,8 @@ const VideoState = props => {
     };
 
     const  setCurrentVideo = video => {
-        localStorage.setItem('Video', video);
-        localStorage.setItem('Type', "video");
+        localStorage.setItem('Video', video.videoId);
+        localStorage.setItem('Type', video.category);
         dispatch({ type: SET_CURRENT_VIDEO, payload: video });
     }
 
