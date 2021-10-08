@@ -18,7 +18,9 @@ import {
 
 const VideoState = props => {
     const initialState = {
+        total:null,
         videos: null,
+        images:null,
         current: null,
         currentVideo: null,
         filtered: null,
@@ -146,6 +148,8 @@ const VideoState = props => {
         <VideoContext.Provider
             value={{
                 videos: state.videos,
+                images:state.images,
+                total:state.total,
                 current: state.current,
                 filtered: state.filtered,
                 error: state.error,

@@ -6,7 +6,7 @@ import VideoContext from '../../context/video/videoContext';
 const Videos = () => {
   const videoContext = useContext(VideoContext);
 
-  const { videos, filtered, getVideos, loading } = videoContext;
+  const { videos, filtered, getVideos, loading,total } = videoContext;
 
   useEffect(() => {
     getVideos();
@@ -19,14 +19,14 @@ const Videos = () => {
 
   return (
     <Fragment>
-      {videos !== null && !loading ? (
+      {total !== null && !loading ? (
           filtered !== null
             ? filtered.map(video => (
                 
                   <VideoItem video={video}  key={video._id} />
                 
               ))
-            : videos.map(video => (
+            : total.map(video => (
                 
                   <VideoItem video={video}  key={video._id}/>
                 

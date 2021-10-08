@@ -15,9 +15,16 @@ import {
 export default (state, action) => {
     switch (action.type) {
         case GET_VIDEOS:
+            
             return {
                 ...state,
-                videos: action.payload,
+                total: action.payload,
+                videos: action.payload.filter(
+                    video => video.category == "video"
+                ),
+                images: action.payload.filter(
+                    video => video.category == "image"
+                ),
                 loading: false
             };
         case ADD_VIDEO:
@@ -69,7 +76,7 @@ export default (state, action) => {
         case FILTER_VIDEOS:
             return {
                 ...state,
-                filtered: state.videos.filter(video => {
+                filtered: state.total.filter(video => {
                     const regex = new RegExp(`${action.payload}`, 'gi');
                     return video.name.match(regex) 
                 })

@@ -12,7 +12,7 @@ function VideoPlayer() {
     }
     const videoContext = useContext(VideoContext);
 
-    const { videos, filtered, getVideos, loading } = videoContext;
+    const { videos, filtered, getVideos, loading,images } = videoContext;
 
     useEffect(() => {
         getVideos();
@@ -41,6 +41,12 @@ function VideoPlayer() {
                 <Navbar />
                 <div>
                     {videos !== null && !loading && videos.map(video => (
+
+                        <VideoOptions video={video} key={video._id} />
+                    ))}
+                </div>
+                <div>
+                    {images !== null && !loading && images.map(video => (
 
                         <VideoOptions video={video} key={video._id} />
                     ))}
