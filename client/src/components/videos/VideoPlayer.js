@@ -39,13 +39,13 @@ function VideoPlayer() {
         <div className="videoOptionsFlex">
             <div className="sidebar">
                 <Navbar />
-                <div>
+                <div className="scroll">
                     {videos !== null && !loading && videos.map(video => (
 
                         <VideoOptions video={video} key={video._id} />
                     ))}
                 </div>
-                <div>
+                <div className="scroll">
                     {images !== null && !loading && images.map(video => (
 
                         <VideoOptions video={video} key={video._id} />
