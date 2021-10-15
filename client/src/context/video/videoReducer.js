@@ -30,22 +30,23 @@ export default (state, action) => {
         case ADD_VIDEO:
             return {
                 ...state,
-                videos: [action.payload, ...state.videos],
+                total: [action.payload, ...state.total],
                 loading: false
             };
         case UPDATE_VIDEO:
             return {
                 ...state,
-                videos: state.videos.map(video =>
+                total: state.total.map(video =>
                     video._id === action.payload._id ? action.payload : video
                 ),
                 loading: false
             };
         case DELETE_VIDEO:
             localStorage.removeItem('Video');
+            console.log("here")
             return {
                 ...state,
-                videos: state.videos.filter(
+                total: state.total.filter(
                     video => video._id !== action.payload
                 ),
                 loading: false

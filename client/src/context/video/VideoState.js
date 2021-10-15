@@ -73,12 +73,13 @@ const VideoState = props => {
     const deleteVideo = async id => {
         try {
             await axios.delete(`/api/video/${id}`);
-
+            console.log("here")
             dispatch({
                 type: DELETE_VIDEO,
                 payload: id
             });
         } catch (err) {
+            console.log(err);
             dispatch({
                 type: VIDEO_ERROR,
                 payload: err.response.msg

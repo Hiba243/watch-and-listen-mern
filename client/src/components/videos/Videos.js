@@ -11,7 +11,7 @@ const Videos = () => {
   useEffect(() => {
     getVideos();
     // eslint-disable-next-line
-  }, []);
+  }, [total]);
 
   if (videos !== null && videos.length === 0 && !loading) {
     return <h4>Please add a video</h4>;

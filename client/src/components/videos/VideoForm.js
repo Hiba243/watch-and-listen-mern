@@ -17,7 +17,7 @@ const VideoForm = () => {
                
             });
         }
-    },[videoContext,current]);
+    },[current]);
     const [video, setVideo] = useState({
         name: '',
         videoId: '',

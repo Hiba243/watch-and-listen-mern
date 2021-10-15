@@ -6,6 +6,9 @@ const VideoItem = ({ video }) => {
     const {deleteVideo,setCurrent, clearCurrent, setCurrentVideo}=videoContext;
     const { _id, name, videoId, category } = video;
     const onDelete = () => {
+        console.log(
+            "here"
+        )
         deleteVideo(_id);
         clearCurrent();
     }
