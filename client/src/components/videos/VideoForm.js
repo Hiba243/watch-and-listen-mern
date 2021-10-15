@@ -60,7 +60,6 @@ const VideoForm = () => {
                     }
             }
             else{
-                console.log(video);
             addVideo(video);
             }
         }
