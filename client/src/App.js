@@ -26,7 +26,7 @@ const App = () => {
                 <Alerts/>
                 <Switch>
                   <PrivateRoute exact path='/customize' component={Home} />
-                  <Route exact path="/about" component={About}></Route>
+                  <PrivateRoute exact path="/about" component={About}></PrivateRoute>
                   <PrivateRoute exact path="/" component={VideoPlayer}></PrivateRoute>
                   <Route exact path="/register" component={Register}></Route>
                   <Route exact path="/login" component={Login}></Route>

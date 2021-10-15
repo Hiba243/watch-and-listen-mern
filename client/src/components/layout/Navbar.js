@@ -30,6 +30,9 @@ const Navbar = ({ title, icon }) => {
         <Link to='/'>Home</Link>
       </li>
       <li>
+        <Link to='/about'>About</Link>
+      </li>
+      <li>
         <a onClick={onLogout} href='#!'>
           <span className='hide-sm'>Logout</span>
         </a>

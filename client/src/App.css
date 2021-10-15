@@ -451,6 +451,10 @@ justify-content: space-between;
   display: flex;
   justify-content: space-between;
 }
+.About{
+  display: flex;
+  justify-content: space-between;
+}
 .sidebar{
   display: flex;
   gap:5rem;

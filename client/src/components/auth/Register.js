@@ -9,10 +9,11 @@ const Register = props => {
 
     const { setAlert } = alertContext;
     const { register, error, clearErrors, isAuthenticated } = authContext;
-
+    const [isRegistering,setIsRegistering]=useState(false);
     useEffect(() => {
         if (isAuthenticated) {
-            props.history.push('/');
+            setIsRegistering(false);
+            props.history.push('/about');
         }
 
         if (error === 'User already exists') {
@@ -35,10 +36,13 @@ const Register = props => {
 
     const onSubmit = e => {
         e.preventDefault();
+        setIsRegistering(true);
         if (name === '' || email === '' || password === '') {
             setAlert('Please enter all fields', 'danger');
+            setIsRegistering(false);
         } else if (password !== password2) {
             setAlert('Passwords do not match', 'danger');
+            setIsRegistering(false);
         } else {
             register({
                 name,
@@ -106,6 +110,7 @@ const Register = props => {
                     className='btn btn-white btn-block'
                 />
             </form>
+            {isRegistering && <p className="text-center">Registering...</p>}
             <div className="text-center">
             <Link to="/login" >Already have an account? Sign in here</Link>
             </div>

@@ -12,6 +12,7 @@ const Login = props => {
 
   useEffect(() => {
     if (isAuthenticated) {
+      setIsAuthenticating(false);
       props.history.push('/');
     }
 
@@ -27,14 +28,18 @@ const Login = props => {
     password: ''
   });
 
+  const [isAuthenticating,setIsAuthenticating]=useState(false);
+
   const { email, password } = user;
 
   const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
   const onSubmit = e => {
     e.preventDefault();
+    setIsAuthenticating(true);
     if (email === '' || password === '') {
       setAlert('Please fill in all fields', 'danger');
+      setIsAuthenticating(false);
     } else {
       login({
         email,
@@ -77,6 +82,7 @@ const Login = props => {
           className='btn btn-white btn-block'
         />
       </form>
+      {isAuthenticating && <p className="text-center">Logging In...</p>}
       <div className="text-center">
       <Link to="/register">Don't have an account? Register here</Link>
       </div>
