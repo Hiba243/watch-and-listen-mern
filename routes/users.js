@@ -21,7 +21,6 @@ router.post('/', [
     ).isLength({min: 6}),
   ], async (req, res) => {
     const errors=validationResult(req);
-    // console.log(errors);
     if(!errors.isEmpty()){
         return res.status(400).json({errors:errors.array()});
     }
@@ -60,7 +59,6 @@ router.post('/', [
       })
     }
     catch(err){
-      console.log(err.message);
       res.status(500).json({msg:'server error'});
     }
 });

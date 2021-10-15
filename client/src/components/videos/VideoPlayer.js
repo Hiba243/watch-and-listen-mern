@@ -17,8 +17,8 @@ function VideoPlayer() {
     useEffect(() => {
         getVideos();
 
-        setCurrentVideo(localStorage.getItem('Video')); console.log(currentVideo);
-        setCurrentType(localStorage.getItem('Type')); console.log(localStorage.getItem('Type'));
+        setCurrentVideo(localStorage.getItem('Video')); 
+        setCurrentType(localStorage.getItem('Type')); 
         // eslint-disable-next-line
     }, [localStorage.getItem('Type')]);
 

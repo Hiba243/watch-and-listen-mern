@@ -43,7 +43,6 @@ export default (state, action) => {
             };
         case DELETE_VIDEO:
             localStorage.removeItem('Video');
-            console.log("here")
             return {
                 ...state,
                 total: state.total.filter(
