@@ -59,8 +59,10 @@ const VideoForm = () => {
                         setAlert("please enter a valid youtube url","danger");
                     }
             }
-            else
+            else{
+                console.log(video);
             addVideo(video);
+            }
         }
         else{
             if(!name){

@@ -13,7 +13,7 @@ const Videos = () => {
     // eslint-disable-next-line
   }, [total]);
 
-  if (videos !== null && videos.length === 0 && !loading) {
+  if (total !== null && total.length === 0 && !loading) {
     return <h4>Please add a video</h4>;
   }
 

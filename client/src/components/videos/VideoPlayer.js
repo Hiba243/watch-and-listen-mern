@@ -41,17 +41,23 @@ function VideoPlayer() {
         <div className="videoOptionsFlex">
             <div className="sidebar">
                 <Navbar />
+                <div>
+                <p style={{textAlign:'right'}}>Videos List</p>
                 <div className="scroll">
                     {videos !== null && !loading && videos.map(video => (
 
                         <VideoOptions video={video} key={video._id} />
                     ))}
                 </div>
+                </div>
+                <div>
+                <p style={{textAlign:'right'}}>Images List</p>
                 <div className="scroll">
                     {images !== null && !loading && images.map(video => (
 
                         <VideoOptions video={video} key={video._id} />
                     ))}
+                </div>
                 </div>
             </div>
 

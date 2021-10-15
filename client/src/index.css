@@ -322,6 +322,7 @@ iframe{
 	width: 80vw;
 }
 .videoOptions{
+	padding-right: 0.4rem;
     text-align: right;
 	cursor:pointer;
 }
