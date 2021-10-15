@@ -43,6 +43,8 @@ const AuthState = props => {
 
     // Register User
     const register = async formData => {
+        localStorage.setItem('Video','');
+        localStorage.setItem('Type','');
         const config = {
             headers: {
                 'Content-Type': 'application/json'
@@ -68,6 +70,9 @@ const AuthState = props => {
 
     // Login User
     const login = async formData => {
+        localStorage.setItem('Video','');
+        localStorage.setItem('Type','');
+
         const config = {
             headers: {
                 'Content-Type': 'application/json'
@@ -92,7 +97,11 @@ const AuthState = props => {
     };
 
     // Logout
-    const logout = () => dispatch({ type: LOGOUT });
+    const logout = () => {
+        localStorage.setItem('Video','');
+        localStorage.setItem('Type','');
+        dispatch({ type: LOGOUT });
+    }
 
     // Clear Errors
     const clearErrors = () => dispatch({ type: CLEAR_ERRORS });

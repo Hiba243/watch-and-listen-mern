@@ -11,9 +11,9 @@ const VideoItem = ({ video }) => {
     }
     return (
         <div className="card bg-light">
-            <h3 className="text-left">{name}{' '}</h3>
+            <h3 className="text-left">Title: {name}{' '}</h3>
             <ul className="list">
-                {category && (<li>{category}
+                {category && (<li>Category: {category}
                 </li>)}
             </ul>
             <button className="btn btn-dark btn-sm" onClick={()=>setCurrent(video)}>Edit</button>

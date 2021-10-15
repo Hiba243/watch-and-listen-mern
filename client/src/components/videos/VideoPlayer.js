@@ -12,7 +12,7 @@ function VideoPlayer() {
     }
     const videoContext = useContext(VideoContext);
 
-    const { videos, filtered, getVideos, loading,images } = videoContext;
+    const { videos, filtered, getVideos, loading,images,total } = videoContext;
 
     useEffect(() => {
         getVideos();
@@ -35,7 +35,9 @@ function VideoPlayer() {
     };
 
     return <div className="VideoPlayer">
-        {localStorage.getItem('Type') == "video" ? <YouTube videoId={localStorage.getItem('Video')} opts={opts} /> : <img src={localStorage.getItem('Video')} alt="myimg" className="img-format"></img>}
+        {localStorage.getItem('Type') == "" && (total==null || total.length==0) ? <p>Please add</p> : total!=null && localStorage.getItem('Type') == "" ? <p>Please select something</p> : ''}
+        {localStorage.getItem('Type') == "video" && <YouTube videoId={localStorage.getItem('Video')} opts={opts} />}
+        {localStorage.getItem('Type') == "image" &&  <img src={localStorage.getItem('Video')} alt="myimg" className="img-format"></img>}
         <div className="videoOptionsFlex">
             <div className="sidebar">
                 <Navbar />
