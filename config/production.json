@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://123hiba:123hiba@watchandlistencluster.ldcaz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret": "secret"
+}
