@@ -35,7 +35,7 @@ function VideoPlayer() {
     };
 
     return <div className="VideoPlayer">
-        {localStorage.getItem('Type') == "" && (total==null || total.length==0) ? <p>Please add</p> : total!=null && localStorage.getItem('Type') == "" ? <p>Please select something</p> : ''}
+        {localStorage.getItem('Type') == "" && (total==null || total.length==0) ? <p>Please add a video/image from the "Customize" page</p> : total!=null && localStorage.getItem('Type') == "" ? <p>Please select something</p> : ''}
         {localStorage.getItem('Type') == "video" && <YouTube videoId={localStorage.getItem('Video')} opts={opts} />}
         {localStorage.getItem('Type') == "image" &&  <img src={localStorage.getItem('Video')} alt="myimg" className="img-format"></img>}
         <div className="videoOptionsFlex">
