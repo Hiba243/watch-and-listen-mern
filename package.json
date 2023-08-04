@@ -7,10 +7,10 @@
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
     "serverStart": "node server.js",
-    "server": "node .netlify/functions/server.js",
+    "server": "node netlify/functions/server.js",
     "client": "npm start --prefix client",
     "clientinstall": "npm install --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run build\"",
+    "dev": "concurrently \"npm run server\" \"npm run start\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Hiba",
