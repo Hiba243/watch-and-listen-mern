@@ -4,11 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
+    "serverStart": "node server.js",
     "server": "node netlify/functions/server.js",
     "client": "npm start --prefix client",
     "clientinstall": "npm install --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run build\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Hiba",
@@ -21,10 +23,41 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.7",
     "react-scrollable-list": "^1.3.1",
-    "serverless-http": "^3.2.0"
+    "serverless-http": "^3.2.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "4.0.3",
+    "react-window": "^1.8.6",
+    "react-youtube": "^7.13.1",
+    "uuid": "^8.3.2",
+    "web-vitals": "^1.1.2",
+    "youtube-iframe": "^1.0.3"
   },
   "devDependencies": {
     "concurrently": "^6.2.1",
     "nodemon": "^2.0.12"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
