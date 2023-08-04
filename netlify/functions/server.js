@@ -1,5 +1,5 @@
 const express = require('express');
-const connectDB = require('../../config/db');
+const connectDB = require('../../config/production');
 const path = require('path');
 const serverless = require("serverless-http");
 
