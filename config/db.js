@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const config = require('config');
-const db = config.get('mongoURI');
+const db = "mongodb+srv://123hiba:123hiba@watchandlistencluster.ldcaz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 const connectDB = async () => {
   try {
